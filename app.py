@@ -19,24 +19,88 @@ HTML_FORM = """
 <head>
   <meta charset="UTF-8">
   <title>Formulario de Consulta</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background-color: white;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      max-width: 500px;
+      width: 100%;
+    }
+    h2 {
+      text-align: center;
+      color: #004080;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 15px;
+      color: #333;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background-color: #004080;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0059b3;
+    }
+    .logo {
+      display: block;
+      margin: 0 auto 20px auto;
+      max-width: 120px;
+    }
+  </style>
 </head>
 <body>
-  <h2>Dejanos tus datos y te contactamos</h2>
-  <form method="post">
-    <label>Nombre y Apellido:</label><br>
-    <input type="text" name="nombre" required><br><br>
-    <label>Celular:</label><br>
-    <input type="text" name="telefono" required><br><br>
-    <label>Email:</label><br>
-    <input type="email" name="email" required><br><br>
-    <label>Tipo de Proyecto:</label><br>
-    <input type="text" name="tipo_proyecto" required><br><br>
-    <label>Nivel de Urgencia:</label><br>
-    <input type="text" name="urgencia" required><br><br>
-    <label>Comentarios:</label><br>
-    <textarea name="comentarios" rows="4" cols="40"></textarea><br><br>
-    <button type="submit">Enviar</button>
-  </form>
+  <div class="container">
+    <!-- Reemplazá esta URL si tenés un logo institucional -->
+    <img src="https://http2.mlstatic.com/D_NQ_NP_940777-MLA74823736086_032024-O.webp" alt="Logo" class="logo">
+    <h2>Dejanos tus datos y te contactamos</h2>
+    <form method="post">
+      <label>Nombre y Apellido:</label>
+      <input type="text" name="nombre" required>
+
+      <label>Celular:</label>
+      <input type="text" name="telefono" required>
+
+      <label>Email:</label>
+      <input type="email" name="email" required>
+
+      <label>Tipo de Proyecto:</label>
+      <input type="text" name="tipo_proyecto" required>
+
+      <label>Nivel de Urgencia:</label>
+      <input type="text" name="urgencia" required>
+
+      <label>Comentarios:</label>
+      <textarea name="comentarios" rows="4"></textarea>
+
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
 </body>
 </html>
 """
