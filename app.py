@@ -5,11 +5,6 @@ import os
 
 load_dotenv()   # 🔑 Carga las variables desde el archivo .env
 
-print("📂 Verificando variables de entorno...")
-print("ODOO_URL:", os.getenv("ODOO_URL"))
-print("ODOO_DB:", os.getenv("ODOO_DB"))
-print("ODOO_USER:", os.getenv("ODOO_USER"))
-print("ODOO_API_KEY:", os.getenv("ODOO_API_KEY"))
 
 
 app = Flask(__name__)
