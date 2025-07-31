@@ -164,6 +164,8 @@ def crear_lead_en_odoo(data):
     }
 
     lead_response = requests.post(url_odoo, json=lead_payload)
+    print("📨 Resultado JSON:", lead_response.json())
+
     print("📨 Respuesta al crear lead:", lead_response.status_code, lead_response.text)
 
 if __name__ == "__main__":
