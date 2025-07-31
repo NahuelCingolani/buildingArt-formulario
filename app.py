@@ -3,9 +3,7 @@ import requests
 from dotenv import load_dotenv
 import os
 
-load_dotenv()   # 🔑 Carga las variables desde el archivo .env
-
-
+load_dotenv()  # 🔑 Carga las variables desde el archivo .env
 
 app = Flask(__name__)
 
@@ -13,7 +11,7 @@ app = Flask(__name__)
 url_odoo = os.getenv("ODOO_URL")
 db = os.getenv("ODOO_DB")
 user = os.getenv("ODOO_USER")
-password = os.getenv("ODOO_API_KEY")
+password = os.getenv("ODOO_PASSWORD")
 
 HTML_FORM = """
 <!DOCTYPE html>
@@ -78,7 +76,6 @@ HTML_FORM = """
 </head>
 <body>
   <div class="container">
-    <!-- Reemplazá esta URL si tenés un logo institucional -->
     <img src="/static/logo.png" alt="Logo" class="logo">
     <h2>Dejanos tus datos y te contactamos</h2>
     <form method="post">
@@ -87,7 +84,6 @@ HTML_FORM = """
 
       <label>Celular:</label>
       <input type="text" name="telefono" pattern="^[0-9]{8,15}$" title="Ingresá entre 8 y 15 números" required>
-
 
       <label>Email:</label>
       <input type="email" name="email" required>
@@ -116,6 +112,7 @@ def index():
     return render_template_string(HTML_FORM)
 
 def crear_lead_en_odoo(data):
+    # Paso 1: Autenticación
     auth_payload = {
         "jsonrpc": "2.0",
         "method": "call",
@@ -137,6 +134,7 @@ def crear_lead_en_odoo(data):
         print("❌ Error interpretando JSON de Odoo:", e)
         return
 
+    # Paso 2: Crear el lead
     lead_payload = {
         "jsonrpc": "2.0",
         "method": "call",
@@ -158,7 +156,10 @@ def crear_lead_en_odoo(data):
                         f"📝 Tipo de proyecto: {data['tipo_proyecto']}\n"
                         f"🚀 Urgencia: {data['urgencia']}\n"
                         f"📌 Comentarios: {data['comentarios']}"
-                    )
+                    ),
+                    "tag_ids": [[6, 0, [53]]],  # ← Reemplazá 51 por el ID de tu etiqueta si querés otra
+                    "team_id": 1,
+                    "priority": "3"
                 }]
             ]
         },
@@ -167,7 +168,6 @@ def crear_lead_en_odoo(data):
 
     lead_response = requests.post(url_odoo, json=lead_payload)
     print("📨 Resultado JSON:", lead_response.json())
-
     print("📨 Respuesta al crear lead:", lead_response.status_code, lead_response.text)
 
 if __name__ == "__main__":
