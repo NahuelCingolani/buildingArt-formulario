@@ -1,0 +1,14 @@
+# Evitar subir configuraciones sensibles
+.env
+
+# Archivos de Python
+__pycache__/
+*.pyc
+
+# Entornos virtuales
+venv/
+.env/
+.venv/
+
+# Archivos del sistema
+.DS_Store
