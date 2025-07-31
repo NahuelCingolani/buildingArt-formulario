@@ -77,7 +77,7 @@ HTML_FORM = """
 <body>
   <div class="container">
     <!-- Reemplazá esta URL si tenés un logo institucional -->
-    <img src="https://http2.mlstatic.com/D_NQ_NP_940777-MLA74823736086_032024-O.webp" alt="Logo" class="logo">
+    <img src="/static/logo.png" alt="Logo" class="logo">
     <h2>Dejanos tus datos y te contactamos</h2>
     <form method="post">
       <label>Nombre y Apellido:</label>
