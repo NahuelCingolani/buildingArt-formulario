@@ -84,7 +84,8 @@ HTML_FORM = """
       <input type="text" name="nombre" required>
 
       <label>Celular:</label>
-      <input type="text" name="telefono" required>
+      <input type="text" name="telefono" pattern="^[0-9]{8,15}$" title="Ingresá entre 8 y 15 números" required>
+
 
       <label>Email:</label>
       <input type="email" name="email" required>
