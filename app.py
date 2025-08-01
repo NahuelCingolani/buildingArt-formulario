@@ -88,8 +88,20 @@ HTML_FORM = """
       <label>Email:</label>
       <input type="email" name="email" required>
 
+      <label>Provincia:</label>
+      <input type="text" name="provincia" required>
+
+      <label>Localidad:</label>
+      <input type="text" name="localidad" required>
+
+      <label>Fecha de Apertura:</label>
+      <input type="date" name="fecha" required>
+
       <label>Tipo de Proyecto:</label>
       <input type="text" name="tipo_proyecto" required>
+
+      <label>Productos de Interés:</label>
+      <input type="text" name="productos_de_interes" required>
 
       <label>Nivel de Urgencia:</label>
       <input type="text" name="urgencia" required>
@@ -152,8 +164,12 @@ def crear_lead_en_odoo(data):
                     "contact_name": data['nombre'],
                     "phone": data['telefono'],
                     "email_from": data['email'],
+                    "provincia": data['provincia'],
+                    "localidad": data['localidad'],
+                    "fecha": data['fecha'],
                     "description": (
                         f"📝 Tipo de proyecto: {data['tipo_proyecto']}\n"
+                        f"📦 Productos de interés: {data['productos_de_interes']}\n"
                         f"🚀 Urgencia: {data['urgencia']}\n"
                         f"📌 Comentarios: {data['comentarios']}"
                     ),
