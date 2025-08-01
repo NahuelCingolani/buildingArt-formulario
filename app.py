@@ -157,7 +157,7 @@ def crear_lead_en_odoo(data):
                         f"🚀 Urgencia: {data['urgencia']}\n"
                         f"📌 Comentarios: {data['comentarios']}"
                     ),
-                    "tag_ids": [[6, 0, [53]]],  # ← Reemplazá 51 por el ID de tu etiqueta si querés otra
+                    "tag_ids": [[6, 0, [24]]],  # ← Reemplazá 51 por el ID de tu etiqueta si querés otra
                 }]
             ]
         },
