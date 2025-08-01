@@ -94,7 +94,7 @@ HTML_FORM = """
       <label>Localidad:</label>
       <input type="text" name="localidad" required>
 
-      <label>Fecha de Apertura:</label>
+      <label>Fecha:</label>
       <input type="date" name="fecha" required>
 
       <label>Tipo de Proyecto:</label>
