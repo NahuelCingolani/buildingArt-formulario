@@ -164,16 +164,16 @@ def crear_lead_en_odoo(data):
                     "contact_name": data['nombre'],
                     "phone": data['telefono'],
                     "email_from": data['email'],
-                    "provincia": data['provincia'],
-                    "localidad": data['localidad'],
-                    "fecha": data['fecha'],
                     "description": (
                         f"📝 Tipo de proyecto: {data['tipo_proyecto']}\n"
                         f"📦 Productos de interés: {data['productos_de_interes']}\n"
                         f"🚀 Urgencia: {data['urgencia']}\n"
+                        f"🌎 Provincia: {data['provincia']}\n"
+                        f"🏙️ Localidad: {data['localidad']}\n"
+                        f"📅 Fecha: {data['fecha']}\n"
                         f"📌 Comentarios: {data['comentarios']}"
                     ),
-                    "tag_ids": [[6, 0, [24]]],  # ← Reemplazá 51 por el ID de tu etiqueta si querés otra
+                    "tag_ids": [[6, 0, [24]]],  # 🏷️ Asegurate de que la etiqueta 24 exista
                 }]
             ]
         },
@@ -186,6 +186,5 @@ def crear_lead_en_odoo(data):
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
-
 
 
